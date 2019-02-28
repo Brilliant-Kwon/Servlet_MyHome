@@ -25,6 +25,7 @@
   <div id="wrapper">
     <div id="content">
       <!-- Content 영역 -->
+
     </div>
   </div>
   <div id="footer">
