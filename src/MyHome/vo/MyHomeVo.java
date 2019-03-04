@@ -26,6 +26,13 @@ public class MyHomeVo {
         this.gender = gender;
         this.created_at = created_at;
     }
+
+    public MyHomeVo(Long no, String name, String email, Character gender) {
+        this.no = no;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+    }
     //toString
 
 

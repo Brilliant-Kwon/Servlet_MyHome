@@ -1,4 +1,4 @@
-<%--
+<%@ page import="MyHome.vo.MyHomeVo" %><%--
   Created by IntelliJ IDEA.
   User: k1212
   Date: 2019-03-04
@@ -6,6 +6,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    MyHomeVo authUser = (MyHomeVo) session.getAttribute("authUser");
+%>
 <div id="header">
     <h1>My Homepage</h1>
-</div> <!-- /header -->
+    <ul>
+        <%
+            if (authUser != null) {%>
+        <%--로그인 된 경우의 메뉴--%>
+        <li><a href="<%=request.getContextPath() %>/users?a=logout">로그아웃</a></li>
+        <li><%=authUser.getName()%>님 안녕하세요.</li>
+        <% } else {%>
+        <%--로그인 안 된 경우의 메뉴--%>
+        <li><a href="<%=request.getContextPath() %>/users?a=loginform">로그인</a></li>
+        <li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
+        <% }
+        %>
+    </ul>
+</div>
+<!-- /header -->

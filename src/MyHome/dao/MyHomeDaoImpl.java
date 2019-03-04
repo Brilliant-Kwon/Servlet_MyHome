@@ -131,6 +131,48 @@ public class MyHomeDaoImpl extends BaseDao implements MyHomeDao {
     }
 
     @Override
+    public MyHomeVo getUser(String email, String password) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        MyHomeVo vo = null;
+
+        try {
+            conn = getConnection();
+            String sql = "SELECT no, name, email, gender FROM users WHERE email=? and password=?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
+            rs = pstmt.executeQuery();
+            rs.next();
+
+            Long no = rs.getLong(1);
+            String name = rs.getString(2);
+            String email_get = rs.getString(3);
+            String gender = rs.getString(4);
+
+            vo = new MyHomeVo(no, name, email_get, gender.charAt(0));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("SQL Error!");
+                System.err.println("ERROR : " + e.getMessage());
+            }
+        }
+
+        return vo;
+    }
+
+    @Override
     public boolean update(MyHomeVo vo) {
         return false;
     }

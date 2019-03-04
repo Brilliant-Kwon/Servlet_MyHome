@@ -12,5 +12,7 @@ public interface MyHomeDao {
 
     public boolean delete(Long no);
 
+    public MyHomeVo getUser(String email, String password);
+
     public boolean update(MyHomeVo vo);
 }

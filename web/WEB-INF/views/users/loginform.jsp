@@ -20,26 +20,16 @@
         <div id="content">
             <!-- Content 영역 -->
             <div id="user">
-                <form id="join-form" name="joinform" method="post" action="<%=request.getContextPath()%>/users">
-                    <%--입력폼--%>
-                    <label class="block-label" for="name">이름</label>
-                    <input type="text" name="name" id="name">
-
+                <%--Login form--%>
+                <form id="Login-form" name="Loginform" method="post"
+                      action="<%=request.getContextPath()%>/users">
+                    <input type="hidden" name="a" value="login">
+                    <label class="block-label" for="email">이메일</label>
+                    <input type="text" name="email">
                     <label class="block-label" for="password">비밀번호</label>
                     <input type="password" name="password">
 
-                    <label class="block-label" for="email">이메일</label>
-                    <input type="text" name="email" id="email">
-
-                    <input type="hidden" name="a" value="join">
-
-                    <fieldset>
-                        <legend>성별</legend>
-                        <input type="radio" name="gender" value="F">여성
-                        <input type="radio" name="gender" value="M">남성
-                    </fieldset>
-
-                    <input type="submit" value="가입하기">
+                    <input type="submit" value="로그인">
                 </form>
             </div>
 
