@@ -12,16 +12,10 @@
 </head>
 <body>
 <div id="container">
-    <div id="header">
-        <h1>My Homepage</h1>
-    </div> <!-- /header -->
-    <div id="navigation">
-        <ul>
-            <li><a href="<%= request.getContextPath() %>/">My Home</a></li>
-            <li><a href="<%= request.getContextPath() %>/guestbook">방명록</a></li>
-            <li><a href="<%= request.getContextPath() %>/board">게시판</a></li>
-        </ul>
-    </div>
+<%--HEADER영역--%>
+    <jsp:include page="includes/header.jsp"/>
+    <%--NAVIGATION영역--%>
+    <jsp:include page="includes/navigation.jsp"/>
     <div id="wrapper">
         <div id="content">
             <!-- Content 영역 -->
@@ -30,9 +24,10 @@
             </div>
         </div>
     </div>
-    <div id="footer">
-        <p>Copyright(c) 2019 권찬근 All rights reserved. </p>
-    </div>
+
+    <%--FOOTER영역--%>
+    <jsp:include page="includes/footer.jsp"/>
+    <%--<%@include file="includes/footer.jsp"%>--%>
 </div>
 </body>
 </html>
