@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
+//패턴 지정 잘 할 것
 @WebFilter(filterName = "EncodingFilter", urlPatterns = {"/", "/users", "/cookie/*"})
 public class HTMLEncodingFilter implements Filter {
     @Override
